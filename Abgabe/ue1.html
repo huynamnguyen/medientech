@@ -1,0 +1,149 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="format.css">
+<style type="text/css">
+        <!--
+                 a:link {font-family:Arial;        font-size:10pt;        text-decoration:none;}
+                a:visited {font-family:Arial; font-size:10pt; text-decoration:none;}
+                a:hover {color:#FF3333; text-decoration:none; font-weight:normal; font-size:10pt;}
+        //-->
+</style>
+</head>
+
+<body>
+
+<iframe src="oben.html" width="800" height="120" name="IFrame3" id="IFrame3" scrolling="no" frameborder="0">
+         <p>Ihr Browser kann leider keine eingebe5tteten Frames anzeigen:Sie k&ouml;nnen die eingebettete Seite &uuml;ber den
+         folgenden.</p>
+</iframe>
+
+<h2>Uebung 1</h2>
+<br><h3>Aufgabe 1a</h3>
+
+<br><p>Musikaufnahme</p>
+<audio controls><source src="./audio/musik_19.wav" type="audio/wav"></audio>
+<p>Sprachaufnahme</p>
+        <audio controls>
+                <source src="./audio/sprache_19.wav" type="audio/wav">
+        </audio>
+        <br>
+        <br>
+        <h3>Aufgabe 1b</h3>
+        <p>Die variierenden Abtastfrequenzen in Audio-Dateien reflektieren die jeweiligen Anforderungen der Inhalte: Für
+                Sprachaufnahmen wird oft eine Abtastfrequenz von 8000 Hz gewählt, weil die menschliche Stimme in einem
+                relativ engen Frequenzbereich operiert. Musikdateien hingegen nutzen meist 44100 Hz, um das umfassende
+                Spektrum musikalischer Klänge adäquat einzufangen.</p>
+
+        <h2>Aufgabe 1d</h2>
+        <p>Bitrate formel: Bitrate = fa(Abtastfrequenz) * N(Bits) * K (Anzahl Kanäle)</p>
+                <br>
+                <p>Musikdatei: 44100Hz*16*2 = 1411 kBits/s</p>
+                <br>
+                <p>Sprachdatei: 8000Hz*16*1 = 128 kBit/s/h3></p>
+              
+                <h2>Aufgabe 2b</h2>
+                <img src="pics/sine_lo6.png" width="450" height="300">
+        
+                <h2>Aufgabe 2c</h2>
+                <img src="pics/Abtasttheorem.png" width="450" height="300">
+                <br>
+                <p>Formel des Abtasttheorems: fa = 2*f(0) max</p>
+                <h3>Das Abtasttheorem besagt, dass die Abtastfrequenz eines analogen Signals 
+                mindestens doppelt so hoch wie die maximale im Signal enthaltene Frequenz sein muss,
+                um es korrekt in ein digitales Format zu überführen. Mit anderen Worten: Die Abtastrate muss
+                mindestens das Doppelte der Signalbandbreite betragen. Ist die Abtastfrequenz zu gering, kann dies
+                zu einer fehlerhaften Digitalisierung des Signals führen, was als Aliasing bezeichnet wird. 
+                Die Nyquist-Frequenz ist die Abtastfrequenz, bei der das Abtasttheorem gerade noch erfüllt ist.</h3>
+                <br>
+                <h2>Aufgabe 2d</h2>
+                <h3>Bei herkömmlichen Soundkarten tritt systembedingt kein Aliasing auf,
+                        da das Audiosignal immer einer entsprechenden Vorverarbeitung unterzogen wird.
+                        Diese Vorverarbeitung umfasst den Einsatz eines Filters,
+                        der alle Frequenzen oberhalb der halben Abtastfrequenz (fa/2) entfernt, um sicherzustellen,
+                        dass das Abtasttheorem eingehalten wird.
+                </h3>
+                <br>
+                <h2>Aufgabe 2e</h2>
+                <h2> Down-Sampling </h2>
+
+                <h3>for(int i = 0; i < samples / 2; i++){ <br>
+                                readWavFile.sound[i] = readWavFile.sound[i * 2];
+                                <br>
+                                }
+                                <p>sampleRate /= 2;</p>
+                                <p>numFrames /= 2;</p>
+                </h3>
+                
+                <h3>der Ton des Sprechers kling tiefer. es ist schlechter zu hören als ob er seine Hand vor den Mund halten würde. außerdem hört man ein leichtest rauchen</h2>
+                <br>
+
+                <h2>Aufgabe 3a</h2>
+                <p>2^16 = 65.535
+                        <br>
+                        2^8 = 256
+                </p>
+
+                <br>
+                        <h3>Aufgabe 3b</h3>
+                        <div>
+                                <p>int reduced_bits = 1;</p>
+                                <p>for (int i=0; i &lt; samples;i++) {</p>
+                                <p>&nbsp;&nbsp;readWavFile.sound[i] /= Math.pow(2,reduced_bits);</p>
+                                <p>&nbsp;&nbsp;readWavFile.sound[i] *= Math.pow(2,reduced_bits);</p>
+                                <p>}</p>
+                        </div>
+                        <h3>Aufgabe 3c</h3>
+                        <div>
+                                <p>Musik_19.wav:</p>
+                                <audio controls>
+                                        <source src="audio/ue1/Musik_17.wav" type="audio/wav">
+                                </audio>
+                                <p>Musik_17_1bit.wav:</p>
+                                <audio controls>
+                                        <source src="audio/ue1/Musik_17_1bit.wav" type="audio/wav">
+                                </audio>
+                                <p>Musik_17_9bit.wav:</p>
+                                <audio controls>
+                                        <source src="audio/ue1/Musik_17_9bit.wav" type="audio/wav">
+                                </audio>
+                                <br>
+                                <p>Die hörbare, deutliche Verschlechterung der Audioqualität tritt bei einer Bitanzahl von 9 Bit auf.</p>
+                                <img src="pics/ue1/Bitreduzierungen_Musik_17.png"></img>
+                                <br>
+                                <p>sprache_17.wav:</p>
+                                <audio controls>
+                                        <source src="audio/ue1/sprache_17.wav" type="audio/wav">
+                                </audio>
+                                <p>sprache_17_11bit.wav:</p>
+                                <audio controls>
+                                        <source src="audio/ue1/sprache_17_11bit.wav" type="audio/wav">
+                                </audio>
+                                <p>sprache_17_12bit.wav:</p>
+                                <audio controls>
+                                        <source src="audio/ue1/sprache_17_12bit.wav" type="audio/wav">
+                                </audio>
+                                <br>
+                                <p>Das Sprachsignal ist bis zu einer Bitanzahl von 11 Bit noch verständlich.</p>
+                                <img src="pics/ue1/Bitreduzierungen_Sprache_17.png"></img>
+                        </div>
+                        <h3>Aufgabe 3d</h3>
+                        <p>
+                                Durch die Bitreduzierung entstehen Quantisierungsgeräusche. Diese sind manchmal als Knacken, Klirren oder
+                                Rauschen wahrzunehmen.
+
+                                Die Quantisierungsgeräusche treten nur auf, wenn ein Signal mit Informationen (Sprache/Musik) vorliegt. Je höher
+                                die
+                                Reduzierung, desto stärker werden die Quantisierungsgeräusche.</p>
+
+
+                        <h2>Aufgabe 3d</h2>
+                <p>Das Quantisierungsrauschen entsteht wenn ein Signal Inhalte wie Sprache oder Musik umfasst.
+                Je stärker die Datenkompression, desto stärker und deutlicher wird das Quantisierungsrauschen hervorgehoben.</p>
+        
+                <h2>Aufgabe 3f</h2>
+                <h3> Das Rauschen nimmt zu, wenn die Anzahl der Bits reduziert wird. Jedoch wird das Rauschen mit weiterer Reduzierung der Bits angenehmer und beginnt, dem ursprünglichen Signal immer ähnlicher zu wirken.
+                </h3>
+</body>
+
+</html>
